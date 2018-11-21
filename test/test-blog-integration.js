@@ -138,6 +138,7 @@ describe('Blogpost API resource', function() {
             .post('/posts')
             .send(newPost)
             .then(function(res){
+                //check that the response provided is correct
                 expect(res).to.have.status(201);
                 expect(res).to.be.json;
                 expect(res.body).to.be.a('object');
@@ -147,6 +148,7 @@ describe('Blogpost API resource', function() {
                 expect(res.body.title).to.equal(newPost.title);
                 expect(res.body.content).to.equal(newPost.content);
             });
+            //TODO: check that the new blog post in the database is correct
         });
     });
 
@@ -179,7 +181,7 @@ describe('Blogpost API resource', function() {
     });
 
     describe('DELETE endpoint', function(){
-        it('deletes a blog post by id', function(){
+        it('should delete a blog post by id', function(){
             let post;
 
             return BlogPost
